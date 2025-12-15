@@ -232,7 +232,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const updateConfig = async (key: string, value: any) => {
+  const updateConfig = async (key: string, value: number | boolean) => {
     try {
       await fetch('/api/admin/config', {
         method: 'POST',
@@ -338,7 +338,7 @@ export default function AdminDashboard() {
             ].map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
+                onClick={() => setActiveTab(tab.id as never)}
                 className={`px-4 py-4 text-sm font-medium transition-all relative flex items-center space-x-2 ${
                   activeTab === tab.id ? 'text-blue-600' : 'text-slate-600 hover:text-slate-900'
                 }`}
